@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRCentric | Modern QR Decoder</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <div class="scanner-card">
         <div class="brand-header">
-            <div class="logo-dot"></div>
-            <h1>QR_CENTRIC</h1>
+            <div>
+                <div class="logo-dot"></div>
+                <h1>QR_CENTRIC</h1>
+            </div>
+            <p class="subtitle">Secure matrix scanning environment</p>
         </div>
-        
-        <p class="subtitle">Secure matrix scanning environment</p>
-        
+
         <div class="viewfinder-wrapper">
             <div class="scanner-laser"></div>
             <div id="reader"></div>
         </div>
 
+        <div id="camera-controls" class="hidden">
+            <button id="stop-cam-btn">🛑 Terminate Camera Feed</button>
+        </div>
+
         <div class="custom-upload-container">
             <label for="custom-file-input" class="upload-label">
-                📂 Scan an Image File
+                📷 Scan an Image File
             </label>
             <input type="file" id="custom-file-input" accept="image/*">
         </div>
-        
+
         <div id="result-container" class="hidden">
             <div class="result-header-row">
                 <div class="result-badge">DECODED DATA</div>
@@ -40,6 +46,5 @@
         </div>
     </div>
 
-    <script src="./script.js"></script>
 </body>
 </html>

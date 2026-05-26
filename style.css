@@ -1,47 +1,272 @@
-/* Security UI Enhancements */
+/* ==========================================================================
+   MATRIXFORGE ENTERPRISE STYLESHEET - PRODUCTION READY
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --bg-main: #090a0f;                 /* MatrixForge deep signature canvas */
+    --surface-card: #121420;            /* Elevated panel surfaces */
+    --surface-inner: #020306;           /* Recessed display viewports */
+    --brand-emerald: #00ff87;           /* MatrixForge hyper-glowing accents */
+    --brand-emerald-dim: rgba(0, 255, 135, 0.1);
+    --accent-crimson: #ff3366;          /* System warning/laser lines */
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-focus: rgba(0, 255, 135, 0.3);
+    
+    /* Typography */
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --text-pure: #ffffff;
+    --text-muted: #64748b;
+    --text-dim: #475569;
+}
+
+/* Base Body Environment Setup */
+body {
+    background-color: var(--bg-main);
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: var(--text-pure);
+    font-family: var(--font-sans);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Single-Column Compact Housing */
+.scanner-card {
+    width: 100%;
+    max-width: 660px;
+    background: var(--surface-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 32px;
+    box-sizing: border-box;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* System Header Branding */
+.brand-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 20px;
+}
+
+.brand-header div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--brand-emerald);
+    border-radius: 50%;
+    box-shadow: 0 0 14px var(--brand-emerald);
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-pure);
+    margin: 0;
+}
+
+.subtitle {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--brand-emerald);
+    background: var(--brand-emerald-dim);
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Viewfinder Laser Scanner Block */
+.viewfinder-wrapper {
+    position: relative;
+    background: var(--surface-inner);
+    border: 1px solid var(--border-subtle);
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.viewfinder-wrapper::before {
+    content: "CONVERGENCE LOCK ACTIVE";
+    position: absolute;
+    top: 16px; left: 20px;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 11px;
+    z-index: 5;
+}
+
+.scanner-laser {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-crimson), transparent);
+    box-shadow: 0 0 16px var(--accent-crimson);
+    animation: sweepingLaser 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    z-index: 10;
+}
+
+@keyframes sweepingLaser {
+    0% { top: 4%; }
+    50% { top: 96%; }
+    100% { top: 4%; }
+}
+
+#reader {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+}
+
+/* Primary Form Factor Action Buttons Override */
+#reader button, button {
+    width: 100%;
+    background: var(--brand-emerald) !important;
+    color: var(--bg-main) !important;
+    border: none !important;
+    padding: 14px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-sans) !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+#reader button:hover, button:hover {
+    background: #ffffff !important;
+}
+
+/* Tactical Stop Camera Protocol Button */
+#stop-cam-btn {
+    background: rgba(255, 51, 102, 0.1) !important;
+    color: #ff3366 !important;
+    border: 1px solid rgba(255, 51, 102, 0.3) !important;
+    letter-spacing: 0.5px;
+}
+
+#stop-cam-btn:hover {
+    background: #ff3366 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 25px rgba(255, 51, 102, 0.4) !important;
+}
+
+/* Custom File Selection Upload Container */
+.custom-upload-container {
+    width: 100%;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-subtle);
+    color: var(--text-pure);
+    padding: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.upload-label:hover {
+    border-color: var(--border-focus);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Output Data Log Shell */
+.hidden {
+    display: none !important;
+}
+
+#result-container {
+    background: rgba(2, 3, 6, 0.4);
+    border: 1px solid var(--border-subtle);
+    padding: 24px;
+    border-radius: 12px;
+}
+
 .result-header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.result-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
 }
 
 .safety-badge-placeholder {
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
-    letter-spacing: 0.5px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
 }
 
-/* Safety Color Profiles */
-.status-safe {
-    color: #34c759;
-    background: rgba(52, 199, 89, 0.1);
-    border: 1px solid rgba(52, 199, 89, 0.3);
-}
-
-.status-suspicious {
-    color: #ff9500;
-    background: rgba(255, 149, 0, 0.1);
-    border: 1px solid rgba(255, 149, 0, 0.3);
-}
-
-.status-danger {
-    color: #ff3b30;
-    background: rgba(255, 59, 48, 0.1);
-    border: 1px solid rgba(255, 59, 48, 0.4);
-    box-shadow: 0 0 8px rgba(255, 59, 48, 0.2);
-}
-
-#safety-warning-text {
-    font-size: 13px;
-    line-height: 1.4;
-    padding: 12px;
+#scanned-result {
+    font-family: var(--font-mono);
+    word-break: break-all;
+    font-size: 14px;
+    color: var(--brand-emerald);
+    background: var(--surface-inner);
+    padding: 16px;
     border-radius: 8px;
-    margin-bottom: 15px;
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 24px;
 }
 
-.warning-visible {
-    display: block !important;
+/* ==========================================================================
+   TARGET-LOCK CLEANUP INJECTIONS (DUPLICATE REMOVAL CRITICAL RULES)
+   ========================================================================== */
+#reader__dashboard_section_swaplink,
+#reader a[id*="swaplink"],
+.html5-qrcode-element a,
+#reader div[style*="text-align: center"] a,
+#reader div[style*="text-align: center"] span a,
+#reader a {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
 }
