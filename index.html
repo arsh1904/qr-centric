@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatrixForge | Modern QR Decoder</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="scanner-card">
+        <div class="brand-header">
+            <div class="logo-dot"></div>
+            <h1>MATRIX_FORGE</h1>
+        </div>
+        
+        <p class="subtitle">Align the matrix pattern within the frame to decode</p>
+        
+        <div class="viewfinder-wrapper">
+            <div class="scanner-laser"></div>
+            <div id="reader"></div>
+        </div>
+
+        <div class="custom-upload-container">
+            <label for="custom-file-input" class="upload-label">
+                📂 Scan an Image File
+            </label>
+            <input type="file" id="custom-file-input" accept="image/*">
+        </div>
+        
+        <div id="result-container" class="hidden">
+            <div class="result-badge">DECODED DATA</div>
+            <div id="scanned-result"></div>
+            <button id="reset-btn">Initialize New Scan</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
