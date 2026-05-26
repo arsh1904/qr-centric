@@ -1,0 +1,47 @@
+/* Security UI Enhancements */
+.result-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.safety-badge-placeholder {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+/* Safety Color Profiles */
+.status-safe {
+    color: #34c759;
+    background: rgba(52, 199, 89, 0.1);
+    border: 1px solid rgba(52, 199, 89, 0.3);
+}
+
+.status-suspicious {
+    color: #ff9500;
+    background: rgba(255, 149, 0, 0.1);
+    border: 1px solid rgba(255, 149, 0, 0.3);
+}
+
+.status-danger {
+    color: #ff3b30;
+    background: rgba(255, 59, 48, 0.1);
+    border: 1px solid rgba(255, 59, 48, 0.4);
+    box-shadow: 0 0 8px rgba(255, 59, 48, 0.2);
+}
+
+#safety-warning-text {
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.warning-visible {
+    display: block !important;
+}
