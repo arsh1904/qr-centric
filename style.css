@@ -253,20 +253,24 @@ input[type="file"] {
     border: 1px solid var(--border-subtle);
     margin-bottom: 24px;
 }
-
 /* ==========================================================================
-   TARGET-LOCK CLEANUP INJECTIONS (DUPLICATE REMOVAL CRITICAL RULES)
+   PERMANENT VERCEL VAPORIZATION RULE FOR DUPLICATE LINKS
    ========================================================================== */
 #reader__dashboard_section_swaplink,
 #reader a[id*="swaplink"],
 .html5-qrcode-element a,
 #reader div[style*="text-align: center"] a,
 #reader div[style*="text-align: center"] span a,
-#reader a {
+#reader span a,
+#reader a,
+#reader div[style*="padding: 20px 0px;"] a {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
     height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     position: absolute !important;
     pointer-events: none !important;
 }
